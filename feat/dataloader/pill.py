@@ -37,6 +37,7 @@ class PillDataset(Dataset):
         # Create dicts
         self.datasetid_to_filepath = self.df.to_dict()["filepath"]
         self.datasetid_to_class_id = self.df.to_dict()["class_id"]
+        self.label = [self.datasetid_to_class_id[i] for i in range(self.num_classes())]
 
         # Transformation
         if args.model_type == "ConvNet":
